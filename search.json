@@ -9,7 +9,7 @@
   {
     "objectID": "posts/hw_zero/index.html",
     "href": "posts/hw_zero/index.html",
-    "title": "PIC 16B HW 0",
+    "title": "Penguin Visualizations (HW 0)",
     "section": "",
     "text": "Setting Up\nTo make any plot, we first need to import all the libraries we will need later. Here, we import Pandas for data processing and Matplotlib and Seaborn for the actual plotting. Given the URL of the dataset, we use Pandas to read and save it as a Pandas dataframe, and we can shorten the species label for convenient viewing using Pandas string operations.\n\n# importing required libraries\nimport pandas as pd\nimport seaborn as sns\nfrom matplotlib import pyplot as plt\nurl = \"https://raw.githubusercontent.com/pic16b-ucla/24W/main/datasets/palmer_penguins.csv\"\npenguins = pd.read_csv(url)\n# shortening the label for the species column\npenguins[\"Species\"] = penguins[\"Species\"].str.split().str.get(0)\n\n\n\nData Processing\nThe raw dataset is not very helpful for our plotting purposes, so we create a new data frame through the use of the Pandas groupby function. We group by island ans species, and insert a new column containing the size of each of the groups. This is what we will eventually plot.\n\n# grouping the penugins in the data set by species and island\n# represent that count in a new column called Number\ndf = penguins.groupby(['Island', 'Species']).size().reset_index(name='Number')\n\n\n\nCreating the Figure\nWe will use a combination of Matplotlib and Seaborn capabilities to create a barplot displaying how many penguins of each species are located on each island. We use Matplotlib to create a figure, and then use Seaborn to create a barplot. Our data set will be our Data Frame called df from the previous section, the x-axis will be the island and the y-axis will be the number of penguins. The hue parameter ensures that the plot is separated by species. Finally, we use some Matplotlib tools to set our legend, title, and change the y-axis label to something more descriptive of our plot.\n\n# create a figure\nplt.figure(figsize=(10, 6))\n# using seaborn, construct a barplot of number of penguins per island, separated by species\nsns.barplot(\n    data=df,\n    x=\"Island\",\n    y=\"Number\",\n    hue=\"Species\",\n)\n# update legend, title, and more descriptive y-axis label\nplt.legend(title=\"Species\", loc=\"upper right\")\nplt.title(\"Number of Penguins on Each Island, per Species\")\nplt.ylabel(\"Number of Penguins\")\n\nText(0, 0.5, 'Number of Penguins')"
   },
@@ -25,7 +25,7 @@
     "href": "index.html",
     "title": "16bwebblog",
     "section": "",
-    "text": "PIC 16B HW 0\n\n\n\n\n\n\nHomework 0\n\n\n\n\n\n\n\n\n\nJan 26, 2025\n\n\nHenry Tang\n\n\n\n\n\n\n\n\n\n\n\n\nPost With Code\n\n\n\n\n\n\nnews\n\n\ncode\n\n\nanalysis\n\n\n\n\n\n\n\n\n\nJan 26, 2025\n\n\nHarlow Malloc\n\n\n\n\n\n\n\n\n\n\n\n\nPIC 16B First Website\n\n\n\n\n\n\nmisc\n\n\n\n\n\n\n\n\n\nJan 26, 2025\n\n\nHenry Tang\n\n\n\n\n\n\nNo matching items"
+    "text": "Penguin Visualizations (HW 0)\n\n\n\n\n\n\nHomework 0\n\n\n\n\n\n\n\n\n\nJan 26, 2025\n\n\nHenry Tang\n\n\n\n\n\n\n\n\n\n\n\n\nPost With Code\n\n\n\n\n\n\nnews\n\n\ncode\n\n\nanalysis\n\n\n\n\n\n\n\n\n\nJan 26, 2025\n\n\nHarlow Malloc\n\n\n\n\n\n\n\n\n\n\n\n\nPIC 16B First Website\n\n\n\n\n\n\nmisc\n\n\n\n\n\n\n\n\n\nJan 26, 2025\n\n\nHenry Tang\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/post-with-code/index.html",
