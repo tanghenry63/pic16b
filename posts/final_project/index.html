@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.40">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Kenny Guo, Mario Truong, Henry Tang">
+<meta name="dcterms.date" content="2025-03-19">
+
+<title>TraffiX (1.0) – PIC 16B Site - Henry Tang</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-ddd961a2510921635943dfbbd19534c4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">PIC 16B Site - Henry Tang</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com"> <i class="bi bi-twitter" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">TraffiX (1.0)</h1>
+            <p class="subtitle lead">PIC16B: Final Project</p>
+                                <div class="quarto-categories">
+                <div class="quarto-category">Final Project</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Kenny Guo, Mario Truong, Henry Tang </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">March 19, 2025</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+
+<section id="sections" class="level4">
+<h4 class="anchored" data-anchor-id="sections">Sections</h4>
+<ol type="1">
+<li><a href="#intro">Introduction and Overview</a></li>
+<li><a href="#model">The Model</a></li>
+<li><a href="#simulation">Simulation and Visualization</a></li>
+<li><a href="#traffixearth">TraffiXEarth, real-world integration with OSMNX</a></li>
+<li><a href="#discussion">Discussion and Concluding Remarks</a></li>
+<li><a href="#documentation">Documentation/User Reference</a></li>
+</ol>
+</section>
+<section id="github-link-blog-post-link-this-one" class="level4">
+<h4 class="anchored" data-anchor-id="github-link-blog-post-link-this-one"><a href="https://github.com/kguo12/TraffiX-PIC16B">GitHub Link</a>, <a href="https://kguo12.github.io/kennyguowebpage/posts/traffix%20project/">Blog Post Link (this one!)</a></h4>
+</section>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction<a name="intro"></a></h2>
+<p>Welcome to this introduction on <strong>TraffiX (version 1.0)</strong>, a Python package for building and simulating artificial or IRL traffic networks utilizing NetworkX and OSMNX capabilities developed by <a href="https://tanghenry63.github.io/pic16b/">myself (Henry Tang)</a> and my two friends <a href="https://mariotruong27.github.io/16blog/">Mario Truong</a> and <a href="https://kguo12.github.io/kennyguowebpage/">Kenny Guo</a>. You can find our repository and download TraffiX for yourself <a href="https://github.com/kguo12/TraffiX-PIC16B">here</a>. As UCLA students living in the sprawling city of Los Angeles, we are all too familiar with the sight of piled up highways and the dread of seemingly everlasting commutes. Motivated by this issue and with our background as applied math students, we decided for our Python project to create a model for simulating cars and traffic flowing through a road network, dubbed TraffiX (<em>[/ˈtræfɪk/]</em>). Without further ado, let’s import the relevant modules from the package.</p>
+<div id="15dc7336-a932-49c8-9325-f1c98daca07c" class="cell" data-tags="[]" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> traffix <span class="im">as</span> tx</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> visualization <span class="im">as</span> tv</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> playkit <span class="im">as</span> tpk</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> traffixearth <span class="im">as</span> te</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="overview-of-project" class="level3">
+<h3 class="anchored" data-anchor-id="overview-of-project">Overview of Project</h3>
+<p>TraffiX permits a nice pipeline for building your own road networks, analyzing real-world road networks, and planning for optimal future road construction through simulations all in one package. You can build a model from scratch or through using our <strong>TraffiXEarth</strong> feature by inputting coordinates in WGS-84 and a radius and get a map of the road network at your chosen location. Currently, TraffiX only supports directed acyclic road networks, but its modeling and visualiation capabilities can display potential areas of car buildup or highlight areas to improve road infrastructure in an elegant and presentable way for potential urban planners to utilize.</p>
+<p>TraffiX consists of an underlying model, simulation and visualization process, and TraffiXEarth (for IRL mapping). In this article, we’ll introduce all the components and include relevant documentation for user reference.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="flowchart.png" class="img-fluid figure-img"></p>
+<figcaption>flowchart</figcaption>
+</figure>
+</div>
+</section>
+</section>
+<section id="the-model" class="level2">
+<h2 class="anchored" data-anchor-id="the-model">The Model<a name="model"></a></h2>
+<p>Our model uses a <strong>directed graph</strong> as its basis for a road network, with the <em>nodes</em> (typically) representing <em>intersections</em> where a car could move onto a new <em>road</em> or <em>road segment</em>, which are the <em>edges</em> (we use road/edge and intersection/node interchangeably). A quite particular assumption that we make here is that our graph should be <strong>acyclic</strong>, loosely meaning that there exist no looping paths within the graph. While clearly not resemblant of most road networks, these models are still useful, for example, analyzing specific portions of roads or structures, which is why other road models sometimes make this assumption as well.</p>
+<p>From this assumption, one can declare <strong>inflow</strong> nodes, which initialize a certain number of cars to start there, as well as their destination nodes, which we call <strong>sinks</strong> (our TA <a href="https://www.alexsietsema.com/">Alex</a> amusingly dubbed these points “Ralphs’”– a name we stuck with). This information is stored in an <code>initial_cars_to_sinks</code> dictionary attribute of our Map object. Aside than these special nodes, all of the nodes are endowed with a label, position (x,y) on the map, and lastly, <strong>out-edge turn proportions</strong>, which dictate how an intersection routes cars it receives to its out-edges. After instantiation of a TraffiX model, these proportions can be edited, however, we chose to initialize these values by doing a <em>weighted-routing</em> method, which takes all of the (inflow, sink) pairs, finds each potential route a car going from that inflow to sink can take within the directed graph, and “divvys” up the number of cars travelling that pair among each route (in the cars_to_sinks dictionary), with the number of cars going along that route <em>inversely proportional to the length of that route</em>. These counts for each intersection are then used to calculate the turn proportions at any given intersection. See the following code snippet for a deeper understanding of how this is calculated.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Inversely weighting each path by its length</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> source_node, sink <span class="kw">in</span> <span class="va">self</span>.cars_to_sinks_dict.keys():</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    paths <span class="op">=</span> <span class="bu">list</span>(nx.all_simple_edge_paths(<span class="va">self</span>.G, source_node, sink))</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Calculate path weights from source to sink</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    path_lengths <span class="op">=</span> np.zeros(<span class="bu">len</span>(paths))</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> index, path <span class="kw">in</span> <span class="bu">enumerate</span>(paths):</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>        total_length <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> edge <span class="kw">in</span> path:</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>            total_length <span class="op">+=</span> <span class="va">self</span>.G[edge[<span class="dv">0</span>]][edge[<span class="dv">1</span>]][<span class="st">'length'</span>]</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>        path_lengths[index] <span class="op">=</span> total_length</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Inversely weight by path length</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    path_weights <span class="op">=</span> inv_weighting(path_lengths)</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>            </span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate num of cars on path</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    route_num_cars <span class="op">=</span> <span class="va">self</span>.cars_to_sinks_dict[(source_node, sink)]</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    path_num_cars <span class="op">=</span> path_weights <span class="op">*</span> route_num_cars</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>            </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Now for the roads. When declared, they are endowed with key attributes which include <code>start</code> for the start node, <code>end</code> for the end node, <code>length</code> and <code>lanes</code> for the number of lanes. Additionally, when these roads are instantiated with the <code>.add_road</code> method, they are split into a series of road segments, each with a specified <code>seg_len</code> which can be varied with the model is instantiated. Finally, we calculate a <code>capacity</code> attribute for each road, which takes the <code>lanes</code> and <code>length</code>, and multiplies it by a constant within the Map called <code>capacityPLPL</code> (capacity per length per lane). This capacity attribute is important for when we actually simulate our model.</p>
+<p>Here is a short demonstration of how a model can be instantiated in TraffiX and compiled with the <code>.simulation_check_compile</code> method (checks for acyclic and calculates turn proportions), accompanied with a NetworkX-matplotlib figure sketch that is displayed when the model is compiled.</p>
+<div id="66809d53-9749-4504-b335-86d07d3c7071" class="cell" data-tags="[]" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Building our model</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>m <span class="op">=</span> tx.Map(confirmation_messages <span class="op">=</span> <span class="va">False</span>) <span class="co"># set to True if would like to see confirmations of roads/intersections being added</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>m.add_inter(<span class="dv">1</span>, (<span class="dv">0</span>,<span class="dv">0</span>))</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>m.add_inter(<span class="dv">2</span>, (<span class="dv">1</span>,<span class="dv">1</span>))</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>m.add_inter(<span class="st">"ralphs"</span>, (<span class="dv">2</span>,<span class="dv">1</span>))</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>m.add_road(<span class="dv">1</span>, <span class="dv">2</span>, speed_limit<span class="op">=</span><span class="dv">25</span>, length<span class="op">=</span><span class="dv">200</span>, lanes<span class="op">=</span><span class="dv">1</span>, num_cars<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>m.add_road(<span class="dv">2</span>, <span class="st">"ralphs"</span>, speed_limit<span class="op">=</span><span class="dv">25</span>, length<span class="op">=</span><span class="dv">100</span>, lanes<span class="op">=</span><span class="dv">2</span>, num_cars<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>m.declare_inflow_node(<span class="dv">1</span>, {<span class="st">'ralphs'</span>: <span class="dv">40</span>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="020ebea8-368a-4f12-85bd-0168d857c236" class="cell" data-tags="[]" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compiling our model</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>m.confirmation <span class="op">=</span> <span class="va">True</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>m.simulation_check_compile()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+            Road network satisfactory and ready for simulation. Summary:
+            - Input Nodes: [1]
+            - Sinks: ['ralphs']
+            - Number of lanes used: 3
+            - Total length of road used: 400
+            - Intersection turn probabilities calculated using shortest-path simple weighting. 
+              Access or manually edit through map.G.nodes attributes.
+            Network sketch:
+            </code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/cell-4-output-2.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="57342fd5-a986-4bed-ba2b-52693224da2b" class="cell" data-tags="[]" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get a summary of the model and its resources used</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>m.get_summary()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+        Resources Used:
+        - Total length of road used: 400 units
+        - Total number of lanes: 3
+        Key Nodes:
+        - Inputs: [1]
+        - Sinks: ['ralphs']
+        - Sink destination amounts/Total traffic: {(1, 'ralphs'): 40}
+        </code></pre>
+</div>
+</div>
+</section>
+<section id="simulation-and-visualization" class="level2">
+<h2 class="anchored" data-anchor-id="simulation-and-visualization">Simulation and Visualization<a name="simulation"></a></h2>
+<p>So with our model instantiated, we turn to simulating traffic flow, which we do in <strong>discrete time</strong>. This update process is programmed within our <code>update_time</code> method in <code>traffix.py</code>. We make two main modeling contributions here: green lights and congestion.</p>
+<p>For motivation, consider a traffic model with simultaneous road updates; i.e.&nbsp;all roads receive and relay cars at once. The process gets rather difficult to model and particularly clunky to visualize, so to accomodate this difficulty while still maintaining some realism is to take inspiration from a typical sight at an intersection; traffic lights. So, for each time step, our model updates each road segment one-by-one, sending cars into the intersection as if a green light was occurring at that time.</p>
+<p>Our second main modeling contribution here was our decision in modeling how congestion might occur in a road network. Our underlying idea is simple; the rate at which cars move through a road should be dependent on the “emptiness” or lack of traffic in the edge(s) ahead of it, as you move only as fast as the guy ahead of you. Thus, we calculate a <code>speed_factor</code> based on this measure, and multiply it by a constant, <code>idealSPLPG</code> (ideal number of cars to send, per lane, per green light), and the number of lanes to calculate the number of cars an edge will send into a subsequent one. Thus intuitively, if an edge ahead has a large capacity filled, then the edges before will send cars through at a slower rate. Eventually, if a road segment manages to reach full capacity, the ones before will not be able to push more cars through, eventually causing a backlog (see the “Bridge” example further below). Finally, for edges that lead to a termination point, the calculated number of cars to send will leave the network and be added to that sink’s <code>terminations</code> count.</p>
+<section id="animation" class="level3">
+<h3 class="anchored" data-anchor-id="animation">Animation</h3>
+<p>We utilize Matplotlib’s <code>FuncAnimation</code> along with our <code>update_time</code> function and NetworkX drawing capabilities to animate the traffic flow within a TraffiX model. There are many different labels to visualize, such as the number of cars on each road segment at a given time, the speed_factors, etc, but for elegance of presentation, we decided to highlight these three main features in the following ways:</p>
+<ul>
+<li>The <code>num_cars</code> on each road is normalized to a <code>Reds</code> colormap to color the edges based on how many cars are on it</li>
+<li>The <code>lanes</code> attribute for an edge contributes to the edge width</li>
+<li>The number of terminations at each node is labeled.</li>
+</ul>
+<p>Below are some snippets from our <code>update</code> function <code>FuncAnimation</code> uses.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> update(frame):</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>        ax.clear()  <span class="co"># Clear previous frame, update progress bar</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co"># ...</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Update traffic by one time step</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>        m.update_time()</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Update edge_colors</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>        num_cars <span class="op">=</span> nx.get_edge_attributes(m.G, <span class="st">'num_cars'</span>)</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>        norm <span class="op">=</span> plt.Normalize(<span class="dv">0</span>, <span class="dv">10</span>)</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>        edge_colors <span class="op">=</span> [cm.Reds(norm(num_cars[edge])) <span class="cf">for</span> edge <span class="kw">in</span> m.G.edges]</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Update edge_widths </span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>        num_lanes <span class="op">=</span> nx.get_edge_attributes(m.G, <span class="st">'lanes'</span>)</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>        norm <span class="op">=</span> plt.Normalize(<span class="dv">0</span>, <span class="dv">1</span>)</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>        edge_widths <span class="op">=</span> [norm(num_lanes[edge])<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> <span class="dv">7</span> <span class="cf">for</span> edge <span class="kw">in</span> m.G.edges]</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Redraw graph</span></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>        nx.draw(m.G, m.node_positions, ax<span class="op">=</span>ax, with_labels<span class="op">=</span><span class="va">False</span>, </span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>                node_color<span class="op">=</span>node_colors, node_size<span class="op">=</span><span class="dv">0</span>, </span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>                edge_color<span class="op">=</span>edge_colors, width<span class="op">=</span>edge_widths)</span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a><span class="co"># ...</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>So let us see it in action. We’ll take from the in-package models in <code>playkit.py</code>, specifically the <code>template_bridge</code> model to showcase congestion and how changing the number of lanes on the bridge can improve traffic.</p>
+<section id="lane-bridge" class="level4">
+<h4 class="anchored" data-anchor-id="lane-bridge">1-lane bridge</h4>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>m <span class="op">=</span> tpk.template_bridge(num_bridge_lanes <span class="op">=</span> <span class="dv">1</span>)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>tv.simulate(m)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="onelane.png" class="img-fluid figure-img"></p>
+<figcaption>onelane</figcaption>
+</figure>
+</div>
+<p><strong><em>For webpage storage restrictions, these animations were unfortunately not able to be displayed here. Please refer to the “TraffiX Demo” Python Notebook to see these animations.</em></strong></p>
+</section>
+<section id="lane-bridge-1" class="level4">
+<h4 class="anchored" data-anchor-id="lane-bridge-1">3-lane bridge</h4>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>m <span class="op">=</span> tpk.template_bridge(num_bridge_lanes <span class="op">=</span> <span class="dv">3</span>)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>tv.simulate(m)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="threelane.png" class="img-fluid figure-img"></p>
+<figcaption>threelane.png</figcaption>
+</figure>
+</div>
+<p>As you can see, TraffiX accurately models the performance improvement by adding more lanes to the bridge, resulting in a higher number of terminations in the 3-lane model over the 1-lane model. The 3-lane model also highlights how the roads before the bridge don’t have as much backlog as before and the increased capacity of the 3-lane bridge.</p>
+</section>
+</section>
+</section>
+<section id="traffixearth-real-world-integration-with-osmnx" class="level2">
+<h2 class="anchored" data-anchor-id="traffixearth-real-world-integration-with-osmnx">TraffiXEarth, real-world integration with OSMNX<a name="traffixearth"></a></h2>
+<p>Building your own models is great an all, but can get tedious at times; after all, one has to formally declare the positions of every intersection, instantiate the roads, the lanes, the lengths, and more. Thus, the main motivation behind our <strong>TraffiXEarth</strong> feature (<em>traffixearth.py</em>) is to make this model construction process as easy as typing in a set of coordinates to get a road network model of some location on Earth.</p>
+<p>TraffiXEarth accomplishes this by utilizing the OpenStreetMap NetworkX package, which returns a NetworkX graph of the road network of a certain location, equipped with data on the coordinates of the intersections, the lengths of the roads, the number of lanes, and much more. <code>traffixearth.py</code> takes this information and processes it first converting the nodes and edges into GeoPandas dataframes, and instantiating a TraffiX model using the provided data. Below is a snippet of the cleaning process the function <code>irl_to_traffix_model</code> performs, from normalizing WGS-84 coordinates to rounding road lengths, to filling in NaN lane values:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Get positions based on node coordinates for more accurate visualization</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    nodes, edges <span class="op">=</span> ox.graph_to_gdfs(G)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    nodes <span class="op">=</span> nodes.reset_index()</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    edges <span class="op">=</span> edges.reset_index()</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Normalize coords</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    nodes[<span class="st">'xpos'</span>] <span class="op">=</span> (nodes[<span class="st">'x'</span>] <span class="op">-</span> nodes[<span class="st">'x'</span>].<span class="bu">min</span>()) <span class="op">/</span> (nodes[<span class="st">'x'</span>].<span class="bu">max</span>() <span class="op">-</span> nodes[<span class="st">'x'</span>].<span class="bu">min</span>())</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>    nodes[<span class="st">'ypos'</span>] <span class="op">=</span> (nodes[<span class="st">'y'</span>] <span class="op">-</span> nodes[<span class="st">'y'</span>].<span class="bu">min</span>()) <span class="op">/</span> (nodes[<span class="st">'y'</span>].<span class="bu">max</span>() <span class="op">-</span> nodes[<span class="st">'y'</span>].<span class="bu">min</span>())</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Round edge lengths to nearest multiple of 50, nonzero (for seg_len purposes in traffix.py)</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>    edges[<span class="st">'length'</span>] <span class="op">=</span> <span class="bu">round</span>(edges[<span class="st">'length'</span>] <span class="op">/</span> <span class="dv">50</span>, <span class="dv">0</span>) <span class="op">*</span> <span class="dv">50</span></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>    edges.loc[edges[<span class="st">'length'</span>] <span class="op">==</span> <span class="dv">0</span>, <span class="st">'length'</span>] <span class="op">=</span> <span class="dv">50</span></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Fill in lane NaN and invalid values (e.g. lists) with 1</span></span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>    edges[<span class="st">'lanes'</span>].fillna(<span class="dv">1</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>    edges[<span class="st">'lanes'</span>] <span class="op">=</span> edges[<span class="st">'lanes'</span>].<span class="bu">apply</span>(<span class="kw">lambda</span> x: <span class="dv">1</span> <span class="cf">if</span> <span class="bu">isinstance</span>(x, <span class="bu">list</span>) <span class="cf">else</span> x)</span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>    edges[<span class="st">'lanes'</span>] <span class="op">=</span> edges[<span class="st">'lanes'</span>].astype(<span class="bu">int</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Now the most critical shortcoming of TraffixEarth (at least, in version 1.0) is that TraffiX models currently only support directed acyclic graphs (DAGs), which apply only to a very small subset of real world road networks. For this reason, TraffiXEarth very crudely performs some edge deletion to achieve this result, by removing cycles and isolated points to achieve a weakly-connected (essentially can draw the graph without picking up your pencil), DAG. This is the purpose of the following assertions to ensure TraffixEarth has achieved this result:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> nx.is_weakly_connected(G), <span class="st">"Invalid Area. Resulting map is not weakly connected/not present."</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> nx.is_directed_acyclic_graph(G), <span class="st">"Invalid Area. Modifications did not produce a DAG. Please choose a different area."</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>While our initial motivation was just an easier way to construct TraffiX models, this feature is definitely something that we look to improve in future versions of TraffiX, potentially allowing for user selection of edges to delete or keep, or removing the acyclic restriction altogether. We return to this in the discussion in the next section. For now, let’s see TraffiXEarth in action, with taking a subset of the road network in Downtown Chicago.</p>
+<div id="e0957440-7168-4441-9a76-c63e0930382d" class="cell" data-tags="[]" data-execution_count="46">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>dtchi <span class="op">=</span> te.irl_to_traffix_model(coordinates<span class="op">=</span>(<span class="fl">41.880511</span>, <span class="op">-</span><span class="fl">87.632761</span>), radius<span class="op">=</span><span class="dv">500</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Uncompiled model of IRL road network at (41.880511, -87.632761) with radius 500 returned.
+    Please declare input nodes and initialize number of cars to sinks before compilation.
+    The current summary of the graph (with sinks) and a sketch of the graph are below.
+    
+
+        Resources Used:
+        - Total length of road used: 3800.0 units
+        - Total number of lanes: 40
+        Key Nodes:
+        - Inputs: []
+        - Sinks: [27440225, 2390751536, 262184214]
+        - Sink destination amounts/Total traffic: {}
+        
+
+    For reference, the root nodes that can serve as potential inputs are:
+    [262184217, 3447462591]
+    Initialize inputs with:
+    - .declare_inflow_node(source_node (its name), initial_cars_to_sinks (dictionary, sinks are keys, num_cars are values))
+    </code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/cell-6-output-2.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 262184217, 3447462591 roots</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 27440225, 2390751536, 262184214 sinks</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>dtchi.declare_inflow_node(<span class="dv">262184217</span>, {<span class="dv">27440225</span>:<span class="dv">40</span>, <span class="dv">2390751536</span>:<span class="dv">40</span>, <span class="dv">262184214</span>:<span class="dv">40</span>})</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>dtchi.declare_inflow_node(<span class="dv">3447462591</span>, {<span class="dv">27440225</span>:<span class="dv">40</span>, <span class="dv">2390751536</span>:<span class="dv">40</span>, <span class="dv">262184214</span>:<span class="dv">40</span>})</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>dtchi.simulation_check_compile()</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>tv.simulate(dtchi)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="chicago.png" class="img-fluid figure-img"></p>
+<figcaption>chicago.png</figcaption>
+</figure>
+</div>
+</section>
+<section id="discussion-and-concluding-remarks" class="level2">
+<h2 class="anchored" data-anchor-id="discussion-and-concluding-remarks">Discussion and Concluding Remarks<a name="discussion"></a></h2>
+<p>Overall, the first version of TraffiX has been quite successful and looks promising as a tool to model and simulate traffic conditions worldwide. Our simulations can accurately represent many situations, and TraffiXEarth allows us to gather realistic graphs representing both driving and walking routes.</p>
+<p>At the moment, there are a few limitations to the project’s capabilities, the most fundamental of which is the computational cost of building and visualizing our model. TraffiXEarth works to simplify the construction of a model given some inputs, but one of our goals is to streamline that process along with the display and simulation of the model. Additionally, we hope to further develop the capabilities of TraffiXEarth to allow the user to select specific roads and locations to be included in the model instead of the current methodology of randomly removing edges from the OSMNX inputs. While our model does a good job reconstructing and simulating common traffic situations, it may not be well-equipped to deal with more complicated networks, partly due to the requirement that the graph we use be acyclic. To better represent real-world traffic, we hope to allow for more complex networks (possibly including cycles) and gather actual traffic counts (perhaps even real-time) to feed into our model. If we have access to actual traffic counts, then we will no longer need a directed, acyclic graph to calculate probabilities. Lastly, on another note related to computational complexity, the model is unable to support large graphs in reasonable time. Our current tests used graphs of at most around 50 nodes, and while such a size is enough to represent simple road systems, running our simulation took quite some time. If we wish to model the traffic of a whole city with hundreds or thousands of nodes, we will need to drastically improve the computing power of our model, perhaps by introducing simplifications or looking at some type of aggregate.</p>
+<p>Finally, we do not anticipate many ethical issues with our project so long as the OSMNX and traffic data are available and legal to use. OSMNX maps are freely available as a Python library, and gathering aggregate traffic data from urban data does not seem to pose any privacy or security concerns. However, once our model is strong enough to be used for planning purposes, we may find that existing inequities in infrastructure may show up in our modeling and planning, something we must be aware of when interpreting the outputs of our model and simulations.</p>
+<p>Thanks for reading! We hope you enjoy playing around with <strong>TraffiX</strong>.</p>
+</section>
+<section id="documentation-and-user-reference" class="level2">
+<h2 class="anchored" data-anchor-id="documentation-and-user-reference">Documentation and User Reference<a name="documentation"></a></h2>
+<section id="class-map" class="level4">
+<h4 class="anchored" data-anchor-id="class-map"><strong>Class</strong>: <code>Map</code></h4>
+<p>Represents a road network TraffiX model using NetworkX. Provides methods to construct a directed graph with roads and intersections, declare inflow nodes, check and compilation of model for simulation, and run time-step updates for traffic movement.</p>
+<p><code>__init__</code> Initializes an empty directed graph and key parameters for TraffiX model.</p>
+<p>Arguments:</p>
+<ul>
+<li><code>capacity_per_length_per_lane</code> (float, default=0.5) – Defines road segment capacity per unit length per lane.</li>
+<li><code>green_lights_per_time</code> (int, default=3) – Number of roads that get green lights per time step.</li>
+<li><code>ideal_send_per_lane_per_green</code> (int, default=10) – Ideal number of cars sent per lane per green light cycle.</li>
+<li><code>confirmation_messages</code> (bool, default=True) – Enables or disables confirmation print messages.</li>
+</ul>
+<p>Returns: None</p>
+<p><code>add_inter(label, pos)</code> Adds an intersection node to the graph with a given position.</p>
+<p>Arguments:</p>
+<ul>
+<li><code>label</code> (str or int) – The intersection’s unique identifier.</li>
+<li><code>pos</code> (tuple of float) – The (x, y) coordinates of the intersection.</li>
+</ul>
+<p>Returns: None</p>
+<p><code>add_road(start, end, dt, speed_limit, length, lanes, num_cars=0)</code> Adds a segmented road between two intersections.</p>
+<p>Arguments:</p>
+<ul>
+<li><code>start</code> (str or int) – The starting intersection.</li>
+<li><code>end</code> (str or int) – The ending intersection.</li>
+<li><code>dt</code> – to be implemented</li>
+<li><code>speed_limit</code> – to be implemented</li>
+<li><code>length</code> (float) – Length of the road segment.</li>
+<li><code>lanes</code> (int) – Number of lanes on the road.</li>
+<li><code>num_cars</code> (int, default=0) – Initial number of cars on the road.</li>
+</ul>
+<p>Returns: None</p>
+<p><code>get_summary()</code> Prints a summary of the road network, including resource metrics such as total road length, number of lanes, input nodes, sink nodes, and traffic inputs-sinks distributions.</p>
+<p>Arguments: None</p>
+<p>Returns: None</p>
+<p><code>declare_inflow_node(source_node, initial_cars_to_sinks)</code> Declares an inflow node and adds cars entering the system via dictionary.</p>
+<p>Arguments:</p>
+<ul>
+<li>source_node (str or int) – The input node where cars enter the system.</li>
+<li>initial_cars_to_sinks (dict) – Mapping of sink nodes to the number of cars sent toward them.</li>
+</ul>
+<p>Returns: None</p>
+<p><code>add_road_segment(start, end, dt, speed_limit, length, lanes, num_cars=0)</code> Adds a road segment between two nodes without intermediate intersections.</p>
+<p>Arguments:</p>
+<ul>
+<li>Same as add_road().</li>
+</ul>
+<p>Returns: None</p>
+<p><code>simulation_check_compile()</code> Ensures the road network is acyclic before simulation, initializes sinks and terminations attributes, calculates and assigns intersection turn proportions, and displays a network visualization and summary (if self.confirmation == True).</p>
+<p>Arguments: None</p>
+<p>Returns: None</p>
+<p><code>update_time()</code> Simulates a single time step of traffic movement.</p>
+<p>Arguments: None</p>
+<p>Returns: None</p>
+</section>
+<section id="function-simulate" class="level4">
+<h4 class="anchored" data-anchor-id="function-simulate"><strong>Function</strong>: <code>simulate</code></h4>
+<p>The <code>simulate</code> function animates a TraffiX model traffic simulation over a specified number of frames, visualizing the traffic flow through a road network.</p>
+<p><code>simulate(m, frames=150)</code></p>
+<p>Arguments:</p>
+<ul>
+<li><code>m</code> (Map object): An instance of a TraffiX model, containing a networkx graph (m.G), node positions (m.node_positions), and methods for updating the simulation (m.update_time()).</li>
+<li><code>frames</code> (int, default=150): Number of time steps to run the simulation.</li>
+</ul>
+<p>Returns:</p>
+<ul>
+<li>HTML FuncAnimation object containing a matplotlib animation of the traffic simulation.</li>
+</ul>
+</section>
+<section id="function-irl_to_traffix_model" class="level4">
+<h4 class="anchored" data-anchor-id="function-irl_to_traffix_model"><strong>Function</strong>: <code>irl_to_traffix_model</code></h4>
+<p>The <code>irl_to_traffix_model</code> function converts real-world NetworkX road networks from OpenStreetMap into a directed acyclic graph (DAG) compatible with TraffiX modeling and simulation.</p>
+<p><code>irl_to_traffix_model(coordinates, radius)</code></p>
+<p>Arguments:</p>
+<ul>
+<li>coordinates (tuple): Latitude and longitude of the location to map.</li>
+<li>radius (float): The radius (in meters) around the given coordinates to extract road data.</li>
+</ul>
+<p>Returns:</p>
+<ul>
+<li>A TraffiX model <code>Map</code> object of the road network in a format that can be simulated.</li>
+</ul>
+</section>
+<section id="function-template_2input_1sink" class="level4">
+<h4 class="anchored" data-anchor-id="function-template_2input_1sink"><strong>Function</strong>: <code>template_2input_1sink</code></h4>
+<p>Returns:</p>
+<ul>
+<li>A simple road network model (Map object) with two input sources and one sink.</li>
+</ul>
+</section>
+<section id="function-template_bridgenum_bridge_lanes1-speed_limit50" class="level4">
+<h4 class="anchored" data-anchor-id="function-template_bridgenum_bridge_lanes1-speed_limit50"><strong>Function</strong>: <code>template_bridge(num_bridge_lanes=1, speed_limit=50)</code></h4>
+<p>Arguments:</p>
+<ul>
+<li>num_bridge_lanes (int): Number of lanes on the bridge (must be ≥ 1).</li>
+<li>speed_limit: to be implemented</li>
+</ul>
+<p>Returns:</p>
+<ul>
+<li>A bridge traffic model (Map object) with variable lane capacity.</li>
+</ul>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/tanghenry63\.github\.io\/pic16b\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

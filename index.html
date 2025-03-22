@@ -78,9 +78,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-date','listing-title','listing-author','listing-subtitle','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
+      searchColumns: ["listing-date","listing-title","listing-author","listing-subtitle","listing-image","listing-description","listing-categories"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -191,7 +191,7 @@ window.Quarto = {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(4)</span></div><div class="category" data-category="SG9tZXdvcmslMjAw">Homework 0 <span class="quarto-category-count">(1)</span></div><div class="category" data-category="SG9tZXdvcmslMjAy">Homework 2 <span class="quarto-category-count">(1)</span></div><div class="category" data-category="YW5hbHlzaXM=">analysis <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Y29kZQ==">code <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bWlzYw==">misc <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bmV3cw==">news <span class="quarto-category-count">(1)</span></div></div></div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(5)</span></div><div class="category" data-category="RmluYWwlMjBQcm9qZWN0">Final Project <span class="quarto-category-count">(1)</span></div><div class="category" data-category="SG9tZXdvcmslMjAw">Homework 0 <span class="quarto-category-count">(1)</span></div><div class="category" data-category="SG9tZXdvcmslMjAy">Homework 2 <span class="quarto-category-count">(1)</span></div><div class="category" data-category="YW5hbHlzaXM=">analysis <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Y29kZQ==">code <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bWlzYw==">misc <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bmV3cw==">news <span class="quarto-category-count">(1)</span></div></div></div>
 <!-- main -->
 <main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
 
@@ -205,7 +205,40 @@ window.Quarto = {
 
 <div class="quarto-listing quarto-listing-container-default" id="listing-listing">
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="SG9tZXdvcmslMjAy" data-listing-date-sort="1739174400000" data-listing-file-modified-sort="1739248533469" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="720">
+<div class="quarto-post image-right" data-index="0" data-categories="RmluYWwlMjBQcm9qZWN0" data-listing-date-sort="1742367600000" data-listing-file-modified-sort="1742516506325" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="16" data-listing-word-count-sort="3094">
+<div class="thumbnail">
+<p><a href="./posts/final_project/index.html" class="no-external"></a></p><a href="./posts/final_project/index.html" class="no-external">
+<p class="card-img-top"><img src="posts\final_project\flowchart.png"  class="thumbnail-image card-img"/></p>
+</a><p><a href="./posts/final_project/index.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./posts/final_project/index.html" class="no-external">TraffiX (1.0)</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./posts/final_project/index.html" class="no-external">PIC16B: Final Project</a>
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('RmluYWwlMjBQcm9qZWN0'); return false;">
+Final Project
+</div>
+</div>
+<div class="listing-description">
+<a href="./posts/final_project/index.html" class="no-external">Welcome to this introduction on <strong>TraffiX (version 1.0)</strong>, a Python package for building and simulating artificial or IRL traffic networks utilizing NetworkX and OSMNX…<em></em></a>
+</div>
+</div>
+<div class="metadata">
+<a href="./posts/final_project/index.html" class="no-external">
+<div class="listing-date">
+Mar 19, 2025
+</div>
+<div class="listing-author">
+Kenny Guo, Mario Truong, Henry Tang
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="1" data-categories="SG9tZXdvcmslMjAy" data-listing-date-sort="1739174400000" data-listing-file-modified-sort="1739250922644" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="720">
 <div class="thumbnail">
 <p><a href="./posts/hw_two/index.html" class="no-external"></a></p><a href="./posts/hw_two/index.html" class="no-external">
 <p class="card-img-top"><img src="posts\hw_two\index_files\figure-html\cell-8-output-2.png"  class="thumbnail-image card-img"/></p>
@@ -238,7 +271,7 @@ Henry Tang
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="1" data-categories="SG9tZXdvcmslMjAw" data-listing-date-sort="1737878400000" data-listing-file-modified-sort="1738016033893" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="222">
+<div class="quarto-post image-right" data-index="2" data-categories="SG9tZXdvcmslMjAw" data-listing-date-sort="1737878400000" data-listing-file-modified-sort="1738016033893" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="222">
 <div class="thumbnail">
 <p><a href="./posts/hw_zero/index.html" class="no-external"></a></p><a href="./posts/hw_zero/index.html" class="no-external">
 <p class="card-img-top"><img src="posts\hw_zero\index_files\figure-html\cell-4-output-2.png"  class="thumbnail-image card-img"/></p>
@@ -271,7 +304,7 @@ Henry Tang
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="2" data-categories="bmV3cyUyQ2NvZGUlMkNhbmFseXNpcw==" data-listing-date-sort="1737878400000" data-listing-file-modified-sort="1737962899486" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="7">
+<div class="quarto-post image-right" data-index="3" data-categories="bmV3cyUyQ2NvZGUlMkNhbmFseXNpcw==" data-listing-date-sort="1737878400000" data-listing-file-modified-sort="1737962899486" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="7">
 <div class="thumbnail">
 <p><a href="./posts/post-with-code/index.html" class="no-external"></a></p><a href="./posts/post-with-code/index.html" class="no-external">
 <p><img loading="lazy" src="./posts/post-with-code/image.jpg" class="thumbnail-image"></p>
@@ -310,7 +343,7 @@ Harlow Malloc
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="3" data-categories="bWlzYw==" data-listing-date-sort="1737878400000" data-listing-file-modified-sort="1737964161762" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="32">
+<div class="quarto-post image-right" data-index="4" data-categories="bWlzYw==" data-listing-date-sort="1737878400000" data-listing-file-modified-sort="1737964161762" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="32">
 <div class="thumbnail">
 <p><a href="./posts/welcome/index.html" class="no-external"></a></p><a href="./posts/welcome/index.html" class="no-external">
 <p class="card-img-top"><img src="posts\welcome\thumbnail.jpg"  class="thumbnail-image card-img"/></p>
