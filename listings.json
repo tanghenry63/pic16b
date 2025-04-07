@@ -2,11 +2,10 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/epss113_sc1/index.html",
       "/posts/final_project/index.html",
       "/posts/hw_two/index.html",
-      "/posts/hw_zero/index.html",
-      "/posts/post-with-code/index.html",
-      "/posts/welcome/index.html"
+      "/posts/hw_zero/index.html"
     ]
   }
 ]
